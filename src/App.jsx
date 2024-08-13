@@ -4,9 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Index from "./pages/Index";
 import Entwicklung from "./pages/Entwicklung";
-import ECommerce from "./pages/ECommerce";
-import Blog from "./pages/Blog";
-import Kontakt from "./pages/Kontakt";
 
 const queryClient = new QueryClient();
 
@@ -31,14 +28,21 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/entwicklung" element={<Entwicklung />} />
-            <Route path="/e-commerce" element={<ECommerce />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/kontakt" element={<Kontakt />} />
+            <Route path="/e-commerce" element={<UnderConstruction />} />
+            <Route path="/blog" element={<UnderConstruction />} />
+            <Route path="/kontakt" element={<UnderConstruction />} />
           </Routes>
         </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+);
+
+const UnderConstruction = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold mb-4">Under Construction</h1>
+    <p className="text-xl">This page is coming soon. Please check back later!</p>
+  </div>
 );
 
 export default App;
