@@ -27,13 +27,13 @@ const Index = () => {
           <p className="text-xl text-gray-600 mb-8">
             EXWE ist Ihr überregionaler IT-Dienstleister mit Standorten in Dortmund und Düsseldorf
           </p>
-          <div className="flex justify-center space-x-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: '100 % Leidenschaft', description: 'Wir sind Ideengeber, Experten und Expertinnen, Menschen, Spielkinder, Problemfinder und Problemlöser. So definieren wir Leidenschaft, Tag für Tag neu.' },
               { title: '+7 Jahre Erfahrung', description: 'Unsere erfahrenen Softwareentwickler erkennen potenzielle Risiken und Fehler frühzeitig. Das gewährleistet die Sicherheit und Zuverlässigkeit unserer Systeme.' },
               { title: '+100 zufriedene Kunden', description: 'Jeder erfolgreiche GoLive ist auch für uns auch immer eine Herzensangelegenheit, denn hinter jedem Projekt steht immer ein Team aus Entwicklern, die für Ihr Projekt brennen.' },
             ].map((item) => (
-              <Card key={item.title} className="w-1/3">
+              <Card key={item.title} className="text-left">
                 <CardHeader>
                   <CardTitle>{item.title}</CardTitle>
                 </CardHeader>
@@ -54,8 +54,24 @@ const Index = () => {
               <TabsTrigger value="ecommerce">E-Commerce</TabsTrigger>
               <TabsTrigger value="web">Web</TabsTrigger>
             </TabsList>
-            <TabsContent value="all">
-              {/* Add project cards here */}
+            <TabsContent value="all" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { title: 'Produktkonfigurator & Vertriebstool', company: 'Atlas Copco Kompressoren', image: 'https://www.exwe.de/assets/testimonials/atlas_copco_kompressoren_vertriebstool_mockup.jpg' },
+                  { title: 'Intranet Plattform', company: 'DECATHLON Deutschland', image: 'https://www.exwe.de/assets/sportfachgeschaeft_startseite_blogartikel_mockup_tablet%20Kopie.jpg?k=softwareentwicklung' },
+                  { title: 'Vergabeplattform für die Regionale 2025', company: 'Südwestfalenagentur', image: 'https://www.exwe.de/assets/testimonials/regionale_2025_startseite_mockup_tablet_phone_shadow.jpg' },
+                  { title: 'Dashboard für Gebäudeprüfungen', company: 'DPS - Das Prüfunternehmen', image: 'https://www.exwe.de/assets/testimonials/das_pruefunternehmen_dps_tool_mockup.jpg' },
+                  { title: 'Seminartool', company: 'TU Dortmund', image: 'https://www.exwe.de/assets/testimonials/tu_dortmund_seminarverwatung_tool_anmeldung_mockup.jpg' },
+                ].map((project) => (
+                  <Card key={project.title} className="overflow-hidden">
+                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                    <CardContent className="p-4">
+                      <h3 className="font-bold text-lg mb-2">{project.title}</h3>
+                      <p className="text-sm text-gray-600">{project.company}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </TabsContent>
             {/* Add other TabsContent for different categories */}
           </Tabs>
